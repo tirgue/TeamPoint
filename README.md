@@ -1,7 +1,6 @@
 # TeamPoint
 
-![Image of TeamPoint's Logo](https://github.com/Salim-Azh/TeamPoint/blob/main/icon.png)
-<img src="https://github.com/Salim-Azh/TeamPoint/blob/main/icon.png" width="40%">
+<img src="https://github.com/Salim-Azh/TeamPoint/blob/main/icon.png" width="20%">
 
 ## TeamPoint's Description
 
