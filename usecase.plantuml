@@ -1,0 +1,77 @@
+@startuml
+left to right direction
+
+actor Visitor
+actor User
+actor BoardOwner
+actor WorkspaceAdmin
+Visitor <|-right- User
+User <|-right- WorkspaceAdmin
+User <|-right- BoardOwner
+
+rectangle TeamPoint{ 
+  usecase "Create Workspace" as UC1
+  usecase "Create Board" as UC2
+  usecase "Invite users in the workspace" as UC3
+  usecase "See notifications" as UC4
+  usecase "Set Users permissions in the board" as UC5
+  usecase "Delete Board" as UC6
+  usecase "Change Board View" as UC7
+  usecase "Change View to Kanban" as UC8
+  usecase "Change View to Gantt" as UC9
+  usecase "Change View to Table" as UC10
+  usecase "Accept/Refuse Workspace Invitation" as UC11
+  usecase "Invite as Visitor" as UC12
+  usecase "Read Board" as UC13
+  usecase "Delete Workspace" as UC14
+  usecase "Assign Workspace Admin" as UC15
+  usecase "Set to Edit everything" as UC16
+  usecase "Set to Edit content" as UC17
+  usecase "Set to Edit rows assigned to them\nin the Responsable column" as UC18
+  usecase "Set to View only" as UC19
+  usecase "Add Board Member" as UC20
+  usecase "Remove Board Member" as UC21
+  usecase "Leave Board" as UC22
+  usecase "Assign BoardOwner" as UC23
+  usecase "Join Board" as UC24
+  usecase "Edit Board" as UC28
+  usecase "Write updates" as UC29
+  usecase "CRUD Board's row (item)" as UC30
+  usecase "CRUD Board's column" as UC31
+  usecase "Manage profil settings" as UC32
+  usecase "Answer updates" as UC33
+  usecase "Login/logout" as UC34
+}
+
+User --> UC1
+UC2 .up.> UC1 : extends
+WorkspaceAdmin --> UC3
+User --> UC4
+BoardOwner --> UC5
+WorkspaceAdmin --> UC6
+User --> UC7
+UC7 <|-- UC8
+UC7 <|-- UC9
+UC7 <|-- UC10
+Visitor --> UC11
+UC12 .up.> UC3 : extends
+Visitor --> UC13
+WorkspaceAdmin --> UC14
+WorkspaceAdmin --> UC15
+UC5 <|-- UC16
+UC5 <|-- UC17
+UC5 <|-- UC18
+UC5 <|-- UC19
+User --> UC20
+BoardOwner --> UC21
+User --> UC24
+BoardOwner --> UC23
+UC22 .up.> UC24 : extends
+User --> UC28
+UC29 .up.> UC28 : extends
+UC28 <|-- UC30
+UC28 <|-- UC31
+Visitor --> UC32
+User --> UC33
+Visitor --> UC34
+@enduml
