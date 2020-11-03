@@ -1,7 +1,7 @@
 # TeamPoint
 
 ## TeamPoint's Description
-```text
+
 During our studies at school or even in our personal life, we make team projects, especially in computer science and management speciality. It came to me, that it will be obvious to design a solution to help students and others to manage their team collaboration in any project’s types and in an efficient way. But also to ensure the synchronization of the teams and their autonomy.
 
 So, the project name is Team Point. Team Point is a project management software and its goal is to improve your team performance. Indeed, Team Point is going to help you meet your goals of team collaboration and communication.
@@ -13,7 +13,7 @@ Assign your teammates easily by adding a person column on the board. But also se
 Once your board is operational you will be able to generate different views, for example timeline or kanban.
 Then all members can see what tasks they have to do sorted by multiple filters like priority, status, overdue etc...
 You and your teammates will be able to communicate in a simple way with one click on one of the board tasks and chat, write comments, discuss and mention relevant team members in the context of your work. They will be notified on Team Point.
-```
+
 
 ## TeamPoint's main features 
 _(not exhaustive)_ : 
