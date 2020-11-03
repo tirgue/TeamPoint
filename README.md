@@ -1,6 +1,6 @@
 # TeamPoint
 
-![Image of TeamPoint's Logo](https://github.com/Salim-Azh/TeamPoint/blob/main/icon.png =250x)
+![Image of TeamPoint's Logo](https://github.com/Salim-Azh/TeamPoint/blob/main/icon.png =250x250)
 
 ## TeamPoint's Description
 
