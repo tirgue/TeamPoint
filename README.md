@@ -17,16 +17,16 @@ You and your teammates will be able to communicate in a simple way with one clic
 
 ## TeamPoint's main features 
 _(not exhaustive)_ : 
-*CRUD project:
+* CRUD project:
 A project is equivalent to a workspace.
 
-*Invite users in project: 
+* Invite users in project: 
 You can invite your teammates in the project by username
 
-*Add a Board (container of group item)
+* Add a Board (container of group item)
 You can add as many boards as you want in your project
  
-*Manage Board permission (Board Owner only)
+* Manage Board permission (Board Owner only)
 The board owner can edit everything.
 Choose what everyone can do on this board:
 Edit everything (add/move groups, columns and rows,edit content in all rows and write updates.)
@@ -34,31 +34,31 @@ Edit content (add/move rows, edit content in all rows and write updates.)
 Edit rows assigned to them in the Responsable column (Team members can only edit rows assigned to them in a selected person column.)
 View only (View board content. Write updates.)
 
-*Manage Board members
+* Manage Board members
 Anyone in your workspace/project can find and access your board. You can add other members and set one or plus board owners.
 
-*CRUD group of items (new table)
+* CRUD group of items (new table)
 A group of items is a table or if you prefer a part of your board. For example, one group can be “This week” and another “Next Week”.
 
-*CRUD item (line of the table)
+* CRUD item (line of the table)
 An item can represent whatever you want. It’s a line in the corresponding group. For example you can use them as tasks or tickets for bugs and issues or even as clients.
 
-*Comment an item
+* Comment an item
 If you comment on an item the person in charge will be notified plus all members you mentioned with “@” in your comment. A great way to communicate in context…
 
-*CRUD column (of the table): (Status column,Text column,People column,Timeline column,Date column,Number column) 
+* CRUD column (of the table): (Status column,Text column,People column,Timeline column,Date column,Number column) 
 You are really free to customize everything.
 
-*Change board view : (to main table, to Kanban, to Timeline/Gantt, to Workload)
+* Change board view : (to main table, to Kanban, to Timeline/Gantt, to Workload)
 By default the board view is set to the main table.
 
-*Set user profile settings
+* Set user profile settings
 Personal information, Working status, Password … 
 
-*Read/Answer notifications
+* Read/Answer notifications
 
-*See team assignments
+* See team assignments
 See all of your team assignments in one place. 
 
-*Login/logout
+* Login/logout
 
