@@ -62,3 +62,7 @@ Personal information, Working status, Password …
 See all of your team assignments in one place.
 
 * Login/logout
+
+## TeamPoint's Use Case diagram
+
+![Image of TeamPoint's use case](https://github.com/Salim-Azh/TeamPoint/blob/main/use-case.png)
