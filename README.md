@@ -69,4 +69,4 @@ See all of your team assignments in one place.
 
 ## TeamPoint's Use Case diagram
 
-![Image of TeamPoint's use case](https://github.com/Salim-Azh/TeamPoint/blob/main/use-case.png)
+![Image of TeamPoint's use case](https://github.com/Salim-Azh/TeamPoint/blob/main/usecase.plantuml)
