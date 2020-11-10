@@ -2,7 +2,7 @@
 
 <img src="https://github.com/Salim-Azh/TeamPoint/blob/main/icon.png" width="20%">
 
-<img src="https://github.com/Salim-Azh/TeamPoint/blob/main/TeamPointLogo2.png" width="20%">
+<img src="https://github.com/Salim-Azh/TeamPoint/blob/main/TeamPointLogo2.png" width="50%">
 
 ## TeamPoint's Description
 
