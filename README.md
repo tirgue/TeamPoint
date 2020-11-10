@@ -2,6 +2,8 @@
 
 <img src="https://github.com/Salim-Azh/TeamPoint/blob/main/icon.png" width="20%">
 
+<img src="https://github.com/Salim-Azh/TeamPoint/blob/main/TeamPointLogo2.png" width="20%">
+
 ## TeamPoint's Description
 
 During our studies at school or even in our personal life, we make team projects, especially in computer science and management speciality. It came to me, that it will be obvious to design a solution to help students and others to manage their team collaboration in any project’s types and in an efficient way. But also to ensure the synchronization of the teams and their autonomy.
