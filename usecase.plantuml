@@ -7,31 +7,23 @@ actor "Workspace Member" as WorkspaceMember
 actor "Board Owner" as BoardOwner
 actor "Workspace Visitor" as WorkspaceVisitor
 
-rectangle TeamPoint{
+rectangle "User Management" {
   usecase "Login" as UC112
-  usecase "Manage Workspace" as UC110
-  usecase "Manage Board" as UC111
   usecase "Manage Profil" as UC113
 }
-User --> UC110
-User --> UC111
 User --> UC112
 User --> UC113
-note right of (UC110)
-  Workspace Management
-end note
-note right of (UC111)
-  Board Management
-end note
 
 rectangle "Workspace Management" as Workspace_Management{
   usecase "Invite user to Workspace" as UC107
   usecase "Delete Workspace" as UC108
   usecase "Invite as Visitor" as UC114
   usecase "Invite as Member" as UC115
+  usecase "Manage Workspace" as UC110
 }
 WorkspaceAdmin --> UC108
 WorkspaceAdmin --> UC107
+WorkspaceAdmin --> UC110
 UC107 <|-- UC114
 UC107 <|-- UC115
 
