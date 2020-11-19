@@ -29,7 +29,7 @@ UC107 <|-- UC115
 
 rectangle "Board Management" as Boad_Management{
   usecase "CUD of board" as UC101
-  usecase "Edit the board header" as UC102
+  usecase "Edit board column" as UC102
   usecase "Populate the board" as UC103
   usecase "Change View" as UC104
   usecase "Communicate by comments" as UC105
