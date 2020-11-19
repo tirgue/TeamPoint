@@ -28,13 +28,14 @@ UC107 <|-- UC114
 UC107 <|-- UC115
 
 rectangle "Board Management" as Boad_Management{
-  usecase "CUD of board" as UC101
+  usecase "Create and Update board" as UC101
   usecase "Edit board column" as UC102
   usecase "Populate the board" as UC103
   usecase "Change View" as UC104
   usecase "Communicate by comments" as UC105
   usecase "Manage Board Permissions" as UC106
   usecase "Read Board" as UC116
+  usecase "Delete board" as UC117
 }
 WorkspaceMember <|-right- BoardOwner
 WorkspaceVisitor <|-right- WorkspaceMember
@@ -44,6 +45,7 @@ WorkspaceMember --> UC102
 WorkspaceMember --> UC104
 WorkspaceMember --> UC105
 BoardOwner --> UC106
+BoardOwner --> UC117
 WorkspaceVisitor --> UC116
 
 @enduml
