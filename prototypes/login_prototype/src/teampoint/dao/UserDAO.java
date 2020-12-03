@@ -5,6 +5,7 @@ package dao;
 
 import business_logic.user.User;
 // Start of user code (user defined imports)
+import database.JDBCConnector;
 
 // End of user code
 
@@ -14,29 +15,16 @@ import business_logic.user.User;
  * @author Nico
  */
 public abstract class UserDAO implements DAO<User> {
-	// Start of user code (user defined attributes for UserDAO)
-
-	// End of user code
-
+	
+	private Connection connection;
+	
 	/**
 	 * The constructor.
 	 */
 	public UserDAO() {
 		// Start of user code constructor for UserDAO)
 		super();
-		// End of user code
-	}
-
-	/**
-	 * Description of the method getUser.
-	 * @param email 
-	 * @param password 
-	 * @return 
-	 */
-	public User getUser(String email, String password) {
-		// Start of user code for method getUser
-		User getUser = null;
-		return getUser;
+		this.connection = JDBCConnector.getInstance();
 		// End of user code
 	}
 
@@ -53,6 +41,10 @@ public abstract class UserDAO implements DAO<User> {
 	}
 
 	// Start of user code (user defined methods for UserDAO)
+
+	public Connection getConnection() {
+		return this.connection;
+	}
 
 	// End of user code
 

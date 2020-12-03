@@ -13,7 +13,7 @@ import dao.DAO;
  * 
  * @author Nico
  */
-public interface AbstractFactoryDAO {
+public interface AbstractDAOFactory {
 	// Start of user code (user defined attributes for AbstractFactoryDAO)
 
 	// End of user code
