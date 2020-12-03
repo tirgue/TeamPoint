@@ -6,15 +6,15 @@ package dao;
 import business_logic.user.User;
 
 /**
- * MySQL specific DAO for User. This class extends {@link UserDAO}
+ * MongoDB specific DAO for User. This class extends {@link UserDAO}
+ * 
  * @author Salim Azharhoussen, Birane Ba, Raphael Bourret, Nicolas Galois
  */
-public class MySQLUserDAO extends UserDAO {
-	
+public class MongoUserDAO extends UserDAO {
 	/**
 	 * The constructor.
 	 */
-	public MySQLUserDAO() {
+	public MongoUserDAO() {
 		//TODO construct the UserDAO object
 	}
 
@@ -32,7 +32,12 @@ public class MySQLUserDAO extends UserDAO {
 
 	@Override
 	public User getUser(String email, String password) throws Exception {
-		//TODO user select where email and pwd query in the database 
+		//TODO user select where email and pwd query in the database
 		return null;
 	}
+
+	// Start of user code (user defined methods for MongoUserDAO)
+
+	// End of user code
+
 }

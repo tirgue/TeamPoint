@@ -3,36 +3,26 @@
  *******************************************************************************/
 package dao;
 
-// Start of user code (user defined imports)
-
-// End of user code
-
 /**
- * Description of DAO.
- * 
- * @author Nico
+ * DAO interface
+ * @author Salim Azharhoussen, Birane Ba, Raphael Bourret, Nicolas Galois
  */
 public interface DAO<T> {
-	// Start of user code (user defined attributes for DAO)
-
-	// End of user code
 
 	/**
-	 * Description of the method create.
-	 * @param obj 
-	 * @return 
+	 * Creates the given object in the database.
+	 * (Insert query)
+	 * @param obj The object data structure must exist in the database 
+	 * @return Returns <code>true</code> if the operation succeed otherwise <code>false</code> 
 	 */
 	public Boolean create(T obj);
 
 	/**
-	 * Description of the method delete.
-	 * @param obj 
-	 * @return 
+	 * Removes the data corresponding to this object form the database.
+	 * (Delete Query)
+	 * @param obj The object data structure must exist in the database 
+	 * @return Returns <code>true</code> if the operation succeed otherwise <code>false</code>
 	 */
 	public Boolean delete(T obj);
-
-	// Start of user code (user defined methods for DAO)
-
-	// End of user code
 
 }

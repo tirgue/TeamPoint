@@ -4,34 +4,34 @@
 package dao;
 
 /**
- * Concrete Factory for MySQLDAO products.
+ * Concrete Factory for MySQLDAO product.
  * Implements the {@link DAOFactory} interface
  * @author Salim Azharhoussen, Birane Ba, Raphael Bourret, Nicolas Galois
  */
-public class MySQLDAOFactory implements DAOFactory {
+public class MongoDAOFactory implements DAOFactory {
 	
 	/**
 	 * The constructor.
 	 */
-	private MySQLDAOFactory() {}
+	private MongoDAOFactory() {}
 
-	private static class MySQLDAOFactoryHolder{
-		private static final MySQLDAOFactory INSTANCE = new MySQLDAOFactory();
+	private static class MongoDAOFactoryHolder{
+		private static final MongoDAOFactory INSTANCE = new MongoDAOFactory();
 	}
 	
 	/**
 	 * Creates a {@link UserDAO}
-	 * @return Returns a MySQLUserDAO
+	 * @return Returns a {@link MongoUserDAO}
 	 */
 	public UserDAO createUserDAO() {
-		return new MySQLUserDAO();
+		return new MongoUserDAO();
 	}
 
 	/**
 	 * Static method that returns the unique instance of this class
-	 * @return Returns the instance of {@link MySQLDAOFactory}
+	 * @return Returns the instance of {@link MongoDAOFactory}
 	 */
-	public static DAOFactory getMySQLDAOFactoryInstance() {
-		return MySQLDAOFactoryHolder.INSTANCE;
+	public static DAOFactory getMongoDAOFactoryInstance() {
+		return MongoDAOFactoryHolder.INSTANCE;
 	}
 }
