@@ -3,7 +3,6 @@
  *******************************************************************************/
 package business_logic.user;
 
-import business_logic.user.WorksapceMember;
 // Start of user code (user defined imports)
 
 // End of user code
