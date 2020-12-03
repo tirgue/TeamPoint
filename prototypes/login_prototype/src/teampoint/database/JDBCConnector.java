@@ -3,6 +3,8 @@
  *******************************************************************************/
 package database;
 
+import java.sql.DriverManager;
+
 import database.Connection;
 import database.JDBCConnector;
 // Start of user code (user defined imports)
@@ -28,9 +30,14 @@ public class JDBCConnector {
 	 * The constructor.
 	 */
 	public JDBCConnector() {
-		// Start of user code constructor for JDBCConnector)
 		super();
-		// End of user code
+
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost/TeamPoint?" +
+            	                                   "user=root&password=");
+
+
 	}
 
 	/**
