@@ -1,5 +1,3 @@
-package connectorMySQL;
-
 import java.sql.*;  
 
 public class Main {
@@ -38,8 +36,6 @@ public class Main {
             	
                 String name = rs.getString("name");
                 String firstName = rs.getString("firstName");
-                
-                String emailBase = rs.getString("email");
                 
                 String profileDescr = rs.getString("profileDescription");
                 
