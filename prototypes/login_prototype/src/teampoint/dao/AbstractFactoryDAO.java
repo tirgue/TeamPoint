@@ -3,7 +3,6 @@
  *******************************************************************************/
 package dao;
 
-import dao.DAO;
 // Start of user code (user defined imports)
 
 // End of user code
@@ -13,16 +12,19 @@ import dao.DAO;
  * 
  * @author Nico
  */
-public interface AbstractDAOFactory {
+public class AbstractFactoryDAO {
 	// Start of user code (user defined attributes for AbstractFactoryDAO)
 
 	// End of user code
 
 	/**
-	 * Description of the method create.
-	 * @return 
+	 * The constructor.
 	 */
-	public DAO<?> create();
+	public AbstractFactoryDAO() {
+		// Start of user code constructor for AbstractFactoryDAO)
+		super();
+		// End of user code
+	}
 
 	// Start of user code (user defined methods for AbstractFactoryDAO)
 

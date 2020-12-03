@@ -22,34 +22,25 @@ public class JDBCConnector {
 	 */
 	public Connection connection = null;
 
-	// Start of user code (user defined attributes for JDBCConnector)
 
-	// End of user code
+    private static JDBCConnector INSTANCE = null;
 
-	/**
-	 * The constructor.
-	 */
-	public JDBCConnector() {
-		super();
-
+	private JDBCConnector() {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost/TeamPoint?" +
+        this.connection = DriverManager.getConnection("jdbc:mysql://localhost/TeamPoint?" +
             	                                   "user=root&password=");
 
-
 	}
 
-	/**
-	 * Description of the method getJDBCInstance.
-	 * @return 
-	 */
-	public JDBCConnector getJDBCInstance() {
-		// Start of user code for method getJDBCInstance
-		JDBCConnector getJDBCInstance = null;
-		return getJDBCInstance;
-		// End of user code
-	}
+	/** Point d'accès pour l'instance unique du singleton */
+    public static synchronized JDBCConnector getInstance()
+    {           
+        if (INSTANCE == null){ 
+			INSTANCE = new JDBCConnector(); 
+		}
+        return INSTANCE;
+    }
 
 	// Start of user code (user defined methods for JDBCConnector)
 
@@ -61,13 +52,4 @@ public class JDBCConnector {
 	public Connection getConnection() {
 		return this.connection;
 	}
-
-	/**
-	 * Sets a value to attribute connection. 
-	 * @param newConnection 
-	 */
-	public void setConnection(Connection newConnection) {
-		this.connection = newConnection;
-	}
-
 }

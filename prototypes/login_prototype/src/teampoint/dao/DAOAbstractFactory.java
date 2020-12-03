@@ -1,32 +1,30 @@
 /*******************************************************************************
  * 2020, All rights reserved.
  *******************************************************************************/
-package database;
+package dao;
 
+import dao.DAO;
 // Start of user code (user defined imports)
 
 // End of user code
 
 /**
- * Description of Connection.
+ * Description of DAOAbstractFactory.
  * 
  * @author Nico
  */
-public class Connection {
-	// Start of user code (user defined attributes for Connection)
+public interface DAOAbstractFactory {
+	// Start of user code (user defined attributes for DAOAbstractFactory)
 
 	// End of user code
 
 	/**
-	 * The constructor.
+	 * Description of the method createDAO.
+	 * @return 
 	 */
-	public Connection() {
-		// Start of user code constructor for Connection)
-		super();
-		// End of user code
-	}
+	public DAO createDAO();
 
-	// Start of user code (user defined methods for Connection)
+	// Start of user code (user defined methods for DAOAbstractFactory)
 
 	// End of user code
 

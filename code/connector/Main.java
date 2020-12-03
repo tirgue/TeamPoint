@@ -23,8 +23,10 @@ public class Main {
             //rs = stmt.executeQuery("SELECT * FROM User"
             	//	+ "WHERE email = " + email);
             
-            String req = "SELECT * FROM User "
-            		+ "WHERE email = '" + email + "'";
+			String req = "SELECT idUser, name, firstName, email, phoneNumber, profileDescription, birthday"
+				+ " FROM User "
+				+ "WHERE email = '" + email + "'"
+						+ " AND password = '" + pass + "'";
             
             if (stmt.execute(req)) {
                 rs = stmt.getResultSet();
@@ -38,7 +40,6 @@ public class Main {
                 String firstName = rs.getString("firstName");
                 
                 String emailBase = rs.getString("email");
-                String passBase = rs.getString("password");
                 
                 String profileDescr = rs.getString("profileDescription");
                 
