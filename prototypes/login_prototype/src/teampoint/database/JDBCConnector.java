@@ -22,9 +22,6 @@ public class JDBCConnector {
 	 */
 	public Connection connection = null;
 
-
-    private static JDBCConnector INSTANCE = null;
-
 	private JDBCConnector() {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -33,13 +30,17 @@ public class JDBCConnector {
 
 	}
 
+	/** Holder */
+    private static class JDBCCOnnectorHolder
+    {       
+        /** Instance unique non préinitialisée */
+        private final static JDBCConnector INSTANCE = new JDBCConnector();
+    }
+
 	/** Point d'accès pour l'instance unique du singleton */
-    public static synchronized JDBCConnector getInstance()
-    {           
-        if (INSTANCE == null){ 
-			INSTANCE = new JDBCConnector(); 
-		}
-        return INSTANCE;
+    public static Singleton getInstance()
+    {
+        return JDBCCOnnectorHolder.INSTANCE;
     }
 
 	// Start of user code (user defined methods for JDBCConnector)
