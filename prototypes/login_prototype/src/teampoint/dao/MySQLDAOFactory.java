@@ -5,7 +5,7 @@ package dao;
 
 import dao.AbstractFactoryDAO;
 import dao.UserDAO;
-import dao.UserDAOFactory;
+import dao.MySQLDAOFactory;
 // Start of user code (user defined imports)
 
 // End of user code
@@ -16,7 +16,7 @@ import dao.UserDAOFactory;
  * @author Nico
  */
 // TODO : singleton
-public abstract class UserDAOFactory implements AbstractFactoryDAO {
+public abstract class MySQLDAOFactory implements AbstractFactoryDAO {
 	// Start of user code (user defined attributes for UserDAOFactory)
 
 	// End of user code
@@ -24,7 +24,7 @@ public abstract class UserDAOFactory implements AbstractFactoryDAO {
 	/**
 	 * The constructor.
 	 */
-	public UserDAOFactory() {
+	public MySQLDAOFactory() {
 		// Start of user code constructor for UserDAOFactory)
 		super();
 		// End of user code
@@ -44,10 +44,10 @@ public abstract class UserDAOFactory implements AbstractFactoryDAO {
 	 * Description of the method getUserDAOFactoryInstance.
 	 * @return 
 	 */
-	public static UserDAOFactory getUserDAOFactoryInstance() {
+	public static MySQLDAOFactory getMySQLDAOFactoryInstance() {
 		// Start of user code for method getUserDAOFactoryInstance
-		UserDAOFactory getUserDAOFactoryInstance = null;
-		return getUserDAOFactoryInstance;
+		MySQLDAOFactory getMySQLDAOFactoryInstance = null;
+		return getMySQLDAOFactoryInstance;
 		// End of user code
 	}
 
