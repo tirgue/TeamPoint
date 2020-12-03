@@ -1,6 +1,5 @@
 package gui.view;
 
-// Start of user code (user defined imports)
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,26 +7,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-// End of user code
-
 /**
  * Description of LoginView.
- * 
+ * @author
  *
  */
 public class LoginView extends Application{
-	// Start of user code (user defined attributes for LoginView)
-
-	// End of user code
-
-	/**
-	 * The constructor.
-	 */
-	public LoginView() {
-		// Start of user code constructor for LoginView)
-		super();
-		// End of user code
-	}
 
 	/**
 	 * Description of the method start.
