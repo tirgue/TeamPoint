@@ -13,7 +13,7 @@ import business_logic.user.User;
  * 
  * @author Nico
  */
-public class UserDAO implements DAO<User> {
+public abstract class UserDAO implements DAO<User> {
 	// Start of user code (user defined attributes for UserDAO)
 
 	// End of user code
