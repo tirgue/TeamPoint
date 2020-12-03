@@ -28,7 +28,16 @@ public abstract class MySQLDAOFactory extends AbstractFactoryDAO {
 	}
 
 	// Start of user code (user defined methods for MySQLDAOFactory)
-
+/**
+	 * Description of the method getMySQLUserDAOFactoryInstance.
+	 * @return 
+	 */
+	public static MySQLUserDAOFactory getMySQLUserDAOFactoryInstance() {
+		// Start of user code for method getMySQLUserDAOFactoryInstance
+		MySQLUserDAOFactory getMySQLUserDAOFactoryInstance = null;
+		return getMySQLUserDAOFactoryInstance;
+		// End of user code
+	}
 	// End of user code
 
 }
