@@ -1,9 +1,21 @@
-/*******************************************************************************
- * 2020, All rights reserved.
- *******************************************************************************/
 package gui.controller;
 
 import business_logic.UserFacade;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+
+import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 
 // Start of user code (user defined imports)
 
@@ -12,57 +24,64 @@ import business_logic.UserFacade;
 /**
  * Description of LoginController.
  * 
- * @author Nico
+ *
  */
-public class LoginController {
+public class LoginController implements Initializable{
 	/**
 	 * Description of the property userFacade.
 	 */
-	public UserFacade userFacade = null;
+	private UserFacade userFacade;
 
-	// Start of user code (user defined attributes for LoginController)
+	@FXML
+	private Label authentificationIncorrecte;
 
-	// End of user code
+	@FXML
+	private Button fermerButton;
+
+	@FXML
+	private ImageView logoImage;
+
+	@FXML
+	private TextField emailTextField;
+
+	@FXML
+	private PasswordField motDePassePasswordField;
+
 
 	/**
 	 * The constructor.
 	 */
 	public LoginController() {
-		// Start of user code constructor for LoginController)
-		super();
-		// End of user code
+		userFacade = UserFacade.getUserFacadeInstance();
 	}
+
 
 	/**
-	 * Description of the method login.
-	 * @param email 
-	 * @param password 
-	 * @return 
+	 * When i click the red button, my window is closed
 	 */
-	public Boolean login(String email, String password) {
-		// Start of user code for method login
-		Boolean login = Boolean.FALSE;
-		return login;
-		// End of user code
+	public void fermerButtonOnAction(){
+		Stage stage = (Stage) fermerButton.getScene().getWindow();
+		stage.close();
 	}
 
-	// Start of user code (user defined methods for LoginController)
-
-	// End of user code
-	/**
-	 * Returns userFacade.
-	 * @return userFacade 
-	 */
-	public UserFacade getUserFacade() {
-		return this.userFacade;
+	@FXML
+	public void seConnecterButtonOnAction(ActionEvent event){
+		if(emailTextField.getText().isBlank() || motDePassePasswordField.getText().isBlank() || !userFacade.login(emailTextField.getText(),motDePassePasswordField.getText())){
+			authIncorrecte();
+		}else{
+			//CHANGEMENT DE VUE
+		}
 	}
 
-	/**
-	 * Sets a value to attribute userFacade. 
-	 * @param newUserFacade 
-	 */
-	public void setUserFacade(UserFacade newUserFacade) {
-		this.userFacade = newUserFacade;
+	@FXML
+	public void authIncorrecte(){
+		authentificationIncorrecte.setText("Email ou mot de passe incorrect");
 	}
 
+	@Override
+	public void initialize(URL url, ResourceBundle resourceBundle) {
+		File brandingFile = new File("images/teampoint.png");
+		Image brandingImage = new Image(brandingFile.toURI().toString());
+		logoImage.setImage(brandingImage);
+	}
 }

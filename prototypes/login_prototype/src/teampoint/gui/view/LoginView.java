@@ -1,18 +1,21 @@
-/*******************************************************************************
- * 2020, All rights reserved.
- *******************************************************************************/
 package gui.view;
 
 // Start of user code (user defined imports)
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 // End of user code
 
 /**
  * Description of LoginView.
  * 
- * @author Nico
+ *
  */
-public class LoginView {
+public class LoginView extends Application{
 	// Start of user code (user defined attributes for LoginView)
 
 	// End of user code
@@ -29,13 +32,15 @@ public class LoginView {
 	/**
 	 * Description of the method start.
 	 */
-	public void start() {
-		// Start of user code for method start
-		// End of user code
+	public void start(Stage primaryStage) throws Exception{
+		Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+		primaryStage.initStyle(StageStyle.UNDECORATED);
+		primaryStage.setScene(new Scene(root, 450, 500));
+		primaryStage.show();
 	}
 
-	// Start of user code (user defined methods for LoginView)
-
-	// End of user code
+	public static void main(String[] args) {
+		launch(args);
+	}
 
 }
