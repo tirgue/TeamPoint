@@ -171,5 +171,17 @@ public class User {
 	public void setBirthday(Date newBirthday) {
 		this.birthday = newBirthday;
 	}
+	
+	public String toString() {
+		String str = "";
+		
+		str += "Name: " + getName();
+		str += "/ firstName: " + getFirstName();
+		str += "/ Email: " + getEmail();
+		str += "/ Profile Description: " + getProfileDescription();
+		str += "/ Phone Number: " + getPhoneNumber();
+		
+		return str;
+	}
 
 }

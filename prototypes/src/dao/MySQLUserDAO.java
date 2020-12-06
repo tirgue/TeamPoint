@@ -56,18 +56,28 @@ public class MySQLUserDAO extends UserDAO {
 			if (stmt.execute(req)) {
 				rs = stmt.getResultSet();
 			}
-			int i = 0;
+			
 			while (rs.next()) {
-				resultat.add(rs.getString(i));
-				i++;
+				
+            	resultat.add(rs.getString("name"));
+            	resultat.add(rs.getString("firstName"));
+                
+            	resultat.add(rs.getString("email"));
+                
+            	resultat.add(rs.getString("profileDescription"));
+            	resultat.add(rs.getString("phoneNumber"));
 			}
 		} catch (SQLException e) {
 			// TODO explain connection lost
 			e.printStackTrace();
 		}
 
+		if (resultat.size() == 0) {
+			throw new Exception("User not found");
+		}
+		
 		User user = new User(resultat.get(0), resultat.get(1), resultat.get(2), resultat.get(3), resultat.get(4));
-
+		System.out.println(user.toString());
 		return user;
 	}
 
