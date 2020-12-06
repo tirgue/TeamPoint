@@ -55,7 +55,7 @@ public class MySQLUserDAO extends UserDAO {
 		
 		try {
 			// Getconnection from JDBCConnector
-			stmt = JDBCConnector.getInstance().getConnection().createStatement();
+			stmt = jdbcConnector.getConnection().createStatement();
 		} catch (SQLException e) {
 			// TODO explain database not found
 			e.printStackTrace();
