@@ -3,8 +3,10 @@
  *******************************************************************************/
 package database;
 
-//import java.sql.DriverManager;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import database.JDBCConnector;
 
 /**
@@ -16,13 +18,17 @@ public class JDBCConnector {
 	/**
 	 * Description of the property connection.
 	 */
-	public Connection connection;
+	private Connection connection;
 
 	private JDBCConnector() {
 
-		/*Class.forName("com.mysql.cj.jdbc.Driver");
-		this.connection = DriverManager.getConnection("jdbc:mysql://localhost/TeamPoint?" + "user=root&password=");*/
-
+		try {
+			this.connection = DriverManager.getConnection(
+				"jdbc:mysql://localhost/TeamPoint?" + "user=root&password=");
+		} catch (SQLException e) {
+			// TODO explain dont get connection with database
+			e.printStackTrace();
+		}
 	}
 	
 	/** Holder */

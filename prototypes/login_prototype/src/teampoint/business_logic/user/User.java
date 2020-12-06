@@ -15,25 +15,6 @@ import java.util.HashSet;
  * @author Nico
  */
 public class User {
-	/**
-	 * Description of the property profileDescription.
-	 */
-	public String profileDescription = "";
-
-	/**
-	 * Description of the property phoneNumber.
-	 */
-	public String phoneNumber = "";
-
-	/**
-	 * Description of the property email.
-	 */
-	public String email = "";
-
-	/**
-	 * Description of the property userAttendances.
-	 */
-	public HashSet<AbstractUserAttendance> userAttendances = new HashSet<AbstractUserAttendance>();
 
 	/**
 	 * Description of the property name.
@@ -46,12 +27,42 @@ public class User {
 	public String firstName = "";
 
 	/**
+	 * Description of the property email.
+	 */
+	public String email = "";
+
+	/**
+	 * Description of the property profileDescription.
+	 */
+	public String profileDescription = "";
+
+	/**
+	 * Description of the property phoneNumber.
+	 */
+	public String phoneNumber = "";
+
+	/**
+	 * Description of the property userAttendances.
+	 */
+	public HashSet<AbstractUserAttendance> userAttendances = new HashSet<AbstractUserAttendance>();
+
+	/**
 	 * Description of the property birthday.
 	 */
 	public Date birthday = new Date();
 
 	// Start of user code (user defined attributes for User)
-
+	
+	//TODO Ajouter dans la base le role du user et donc dans le constructeur
+	public User(
+		String name, String firstName, String email, String profileDescription, String phoneNumber
+		) {
+			this.name = name;
+			this.firstName = firstName;
+			this.email = email;
+			this.profileDescription = profileDescription;
+			this.phoneNumber = phoneNumber;
+		}	
 	// End of user code
 
 	// Start of user code (user defined methods for User)
