@@ -21,6 +21,8 @@ public class UserFacade {
 	 * Description of the property user.
 	 */
 	private User user = null;
+	
+	private UserDAO userDAO;
 
 	// Start of user code (user defined attributes for UserFacade)
 
@@ -32,6 +34,8 @@ public class UserFacade {
 	public UserFacade() {
 		// Start of user code constructor for UserFacade)
 		super();
+		
+		this.userDAO = MySQLDAOFactory.getMySQLDAOFactoryInstance().createUserDAO();
 		// End of user code
 	}
 
@@ -54,8 +58,6 @@ public class UserFacade {
 	 */
 	public Boolean login(String email, String password) {
 		// Start of user code for method login
-		
-		UserDAO userDAO = MySQLDAOFactory.getMySQLDAOFactoryInstance().createUserDAO();
 		
 		try {
 			User user = userDAO.getUser(email, password);
