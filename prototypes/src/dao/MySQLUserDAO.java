@@ -37,20 +37,33 @@ public class MySQLUserDAO extends UserDAO {
 		return null;
 	}
 
+	/**ask to the database to return the line that correspond to an email and password
+	 * @param email 
+	 * @param password 
+	 * @return the User created
+	 */
 	@Override
 	public User getUser(String email, String password) throws Exception {
+		// List of all fields to create an user
 		ArrayList<String> resultat = new ArrayList<String>();
+		
+		// Result from database
 		ResultSet rs = null;
+		
+		// Query statement
 		Statement stmt = null;
+		
 		try {
+			// Getconnection from JDBCConnector
 			stmt = JDBCConnector.getInstance().getConnection().createStatement();
 		} catch (SQLException e) {
 			// TODO explain database not found
 			e.printStackTrace();
 		}
 
-		String req = "SELECT idUser, name, firstName, email, phoneNumber, profileDescription, birthday" + " FROM User "
-				+ "WHERE email = '" + email + "'" + " AND password = '" + password + "'";
+		String req = "SELECT idUser, name, firstName, email, phoneNumber, profileDescription, birthday" + 
+					 " FROM User "
+					 + "WHERE email = '" + email + "'" + " AND password = '" + password + "'";
 
 		try {
 			if (stmt.execute(req)) {

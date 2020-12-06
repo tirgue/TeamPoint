@@ -6,6 +6,8 @@ package business_logic;
 import business_logic.UserFacade;
 // Start of user code (user defined imports)
 import business_logic.user.User;
+import dao.MySQLDAOFactory;
+import dao.UserDAO;
 
 // End of user code
 
@@ -18,7 +20,7 @@ public class UserFacade {
 	/**
 	 * Description of the property user.
 	 */
-	public User user = null;
+	private User user = null;
 
 	// Start of user code (user defined attributes for UserFacade)
 
@@ -45,15 +47,24 @@ public class UserFacade {
 	}
 
 	/**
-	 * Description of the method login.
+	 * ask for UserDAO to return an user based on email and password, set the currentUser to the returned user
 	 * @param email 
 	 * @param password 
-	 * @return 
+	 * @return true if user found, false if user not found or incorrect 
 	 */
 	public Boolean login(String email, String password) {
 		// Start of user code for method login
-		Boolean login = Boolean.FALSE;
-		return login;
+		
+		UserDAO userDAO = MySQLDAOFactory.getMySQLDAOFactoryInstance().createUserDAO();
+		
+		try {
+			User user = userDAO.getUser(email, password);
+			setUser(user);
+			
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 		// End of user code
 	}
 

@@ -14,5 +14,5 @@ public interface DAOFactory {
 	 * Creates a {@link UserDAO}
 	 * @return Returns a {@link UserDAO}
 	 */
-	public UserDAO createUserDAO();
+	public abstract UserDAO createUserDAO();
 }

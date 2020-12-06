@@ -20,18 +20,18 @@ public class MySQLDAOFactory implements DAOFactory {
 	}
 	
 	/**
-	 * Creates a {@link UserDAO}
-	 * @return Returns a MySQLUserDAO
-	 */
-	public UserDAO createUserDAO() {
-		return new MySQLUserDAO();
-	}
-
-	/**
 	 * Static method that returns the unique instance of this class
 	 * @return Returns the instance of {@link MySQLDAOFactory}
 	 */
 	public static DAOFactory getMySQLDAOFactoryInstance() {
 		return MySQLDAOFactoryHolder.INSTANCE;
+	}
+	
+	/**
+	 * Creates a {@link UserDAO}
+	 * @return Returns a MySQLUserDAO
+	 */
+	public UserDAO createUserDAO() {
+		return new MySQLUserDAO();
 	}
 }
