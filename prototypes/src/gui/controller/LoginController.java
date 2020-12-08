@@ -5,17 +5,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javax.swing.text.html.ImageView;
-
-import org.graalvm.compiler.phases.common.NodeCounterPhase.Stage;
-
 import business_logic.UserFacade;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import jdk.internal.org.jline.terminal.MouseEvent.Button;
+import javafx.stage.Stage;
 
 
 // Start of user code (user defined imports)
@@ -83,6 +82,7 @@ public class LoginController implements Initializable{
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		File brandingFile = new File("images/teampoint.png");
 		Image brandingImage = new Image(brandingFile.toURI().toString());
-		logoImage.setImage(brandingImage);
+		//logoImage.setImage(brandingImage);
+		// TODO : fix ImageView
 	}
 }

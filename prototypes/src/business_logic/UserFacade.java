@@ -3,13 +3,10 @@
  *******************************************************************************/
 package business_logic;
 
-import business_logic.UserFacade;
-// Start of user code (user defined imports)
+
 import business_logic.user.User;
 import dao.MySQLDAOFactory;
-import dao.UserDAO;
-
-// End of user code
+//import dao.UserDAO;
 
 /**
  * Description of UserFacade.

@@ -4,7 +4,7 @@
 package dao;
 
 import business_logic.user.User;
-import database.JDBCConnector;
+//import database.JDBCConnector;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
