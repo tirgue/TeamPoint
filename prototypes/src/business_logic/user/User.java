@@ -10,64 +10,58 @@ import java.util.HashSet;
 // End of user code
 
 /**
- * Description of User.
- * 
- * @author Nico
+ * User class .
+ * @author Salim Azharhoussen, Birane Ba, Raphael Bourret, Nicolas Galois
  */
 public class User {
 
 	/**
-	 * Description of the property name.
+	 * The property name which is the user name.
 	 */
-	public String name = "";
+	private String name;
 
 	/**
-	 * Description of the property firstName.
+	 * The property firstName which is the user first name.
 	 */
-	public String firstName = "";
+	private String firstName;
 
 	/**
-	 * Description of the property email.
+	 * The property email which is the user email.
 	 */
-	public String email = "";
+	private String email;
 
 	/**
-	 * Description of the property profileDescription.
+	 * The property profileDescription which is the profile description of the user.
 	 */
-	public String profileDescription = "";
+	private String profileDescription;
 
 	/**
-	 * Description of the property phoneNumber.
+	 * The property phoneNumber which is the user phone number.
 	 */
-	public String phoneNumber = "";
+	private String phoneNumber;
 
 	/**
-	 * Description of the property userAttendances.
+	 * The property userAttendances which is the set of user attendances.
 	 */
-	public HashSet<AbstractUserAttendance> userAttendances = new HashSet<AbstractUserAttendance>();
+	private HashSet<AbstractUserAttendance> userAttendances = new HashSet<AbstractUserAttendance>();
 
 	/**
-	 * Description of the property birthday.
+	 * The property birthday which is the user birthday.
 	 */
 	public Date birthday = new Date();
 
-	// Start of user code (user defined attributes for User)
-	
 	//TODO Ajouter dans la base le role du user et donc dans le constructeur
-	public User(
-		String name, String firstName, String email, String profileDescription, String phoneNumber
-		) {
+	/**
+	 * The constructor
+	 */
+	public User(String name, String firstName, String email, String profileDescription, String phoneNumber) {
 			this.name = name;
 			this.firstName = firstName;
 			this.email = email;
 			this.profileDescription = profileDescription;
 			this.phoneNumber = phoneNumber;
-		}	
-	// End of user code
+		}
 
-	// Start of user code (user defined methods for User)
-
-	// End of user code
 	/**
 	 * Returns profileDescription.
 	 * @return profileDescription 
@@ -78,7 +72,7 @@ public class User {
 
 	/**
 	 * Sets a value to attribute profileDescription. 
-	 * @param newProfileDescription 
+	 * @param newProfileDescription which is a new profile description for the user
 	 */
 	public void setProfileDescription(String newProfileDescription) {
 		this.profileDescription = newProfileDescription;
@@ -94,7 +88,7 @@ public class User {
 
 	/**
 	 * Sets a value to attribute phoneNumber. 
-	 * @param newPhoneNumber 
+	 * @param newPhoneNumber which is a new phone number for the user
 	 */
 	public void setPhoneNumber(String newPhoneNumber) {
 		this.phoneNumber = newPhoneNumber;
@@ -110,7 +104,7 @@ public class User {
 
 	/**
 	 * Sets a value to attribute email. 
-	 * @param newEmail 
+	 * @param newEmail which is a new email for the user
 	 */
 	public void setEmail(String newEmail) {
 		this.email = newEmail;
@@ -134,7 +128,7 @@ public class User {
 
 	/**
 	 * Sets a value to attribute name. 
-	 * @param newName 
+	 * @param newName which is a new name for the user
 	 */
 	public void setName(String newName) {
 		this.name = newName;
@@ -150,7 +144,7 @@ public class User {
 
 	/**
 	 * Sets a value to attribute firstName. 
-	 * @param newFirstName 
+	 * @param newFirstName which is a new first name for the user
 	 */
 	public void setFirstName(String newFirstName) {
 		this.firstName = newFirstName;
@@ -166,12 +160,16 @@ public class User {
 
 	/**
 	 * Sets a value to attribute birthday. 
-	 * @param newBirthday 
+	 * @param newBirthday which is a new birthday for the user
 	 */
 	public void setBirthday(Date newBirthday) {
 		this.birthday = newBirthday;
 	}
-	
+
+	/**
+	 * The toString method for the class
+	 * Returns the class in String
+	 */
 	public String toString() {
 		String str = "";
 		

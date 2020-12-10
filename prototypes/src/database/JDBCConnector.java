@@ -26,7 +26,7 @@ public class JDBCConnector {
 			this.connection = DriverManager.getConnection(
 				"jdbc:mysql://localhost/TeamPoint?" + "user=root&password=");
 		} catch (SQLException e) {
-			// TODO explain dont get connection with database
+			//TODO explain dont get connection with database
 			e.printStackTrace();
 		}
 	}

@@ -4,23 +4,17 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javax.swing.text.html.ImageView;
-
-import org.graalvm.compiler.phases.common.NodeCounterPhase.Stage;
-
 import business_logic.UserFacade;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import jdk.internal.org.jline.terminal.MouseEvent.Button;
-
-
-// Start of user code (user defined imports)
-
-// End of user code
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 /**
  * Description of LoginController.

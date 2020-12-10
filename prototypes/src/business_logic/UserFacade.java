@@ -3,58 +3,52 @@
  *******************************************************************************/
 package business_logic;
 
-import business_logic.UserFacade;
-// Start of user code (user defined imports)
+
 import business_logic.user.User;
 import dao.MySQLDAOFactory;
-import dao.UserDAO;
-
-// End of user code
 
 /**
- * Description of UserFacade.
+ * Make the link between User frontend and User backend.
  * 
- * @author Nico
+ * @author Salim Azharhoussen, Birane Ba, Raphael Bourret, Nicolas Galois
  */
 public class UserFacade {
 	/**
-	 * Description of the property user.
+	 * The User logged in. If there is no User logged in : null.
 	 */
 	private User currentUser = null;
 
-	// Start of user code (user defined attributes for UserFacade)
-
-	// End of user code
+	/**
+	 * UserFacade constructor.
+	 * @return A new UserFacade.
+	 */
+	private UserFacade() {}
 
 	/**
-	 * The constructor.
+	 * Handler for the unique instance of UserFacade.
 	 */
-	public UserFacade() {
-		// Start of user code constructor for UserFacade)
-		super();
-		// End of user code
+	private static class LazyHolder {
+		/**
+		 * The unique instance of the UserFacede.
+		 */
+		static final UserFacade INSTANCE = new UserFacade ();
 	}
 
 	/**
-	 * Description of the method getUserFacadeInstance.
-	 * @return 
+	 * Get the UserFacade instance.
+	 * @return The unique UserFacade instance.
 	 */
 	public static UserFacade getUserFacadeInstance() {
-		// Start of user code for method getUserFacadeInstance
-		UserFacade getUserFacadeInstance = null;
-		return getUserFacadeInstance;
-		// End of user code
+		return LazyHolder.INSTANCE;
 	}
 
 	/**
-	 * ask for UserDAO to return an user based on email and password, set the currentUser to the returned user
-	 * @param email 
-	 * @param password 
-	 * @return true if user found, false if user not found or incorrect 
+	 * Ask for UserDAO to return an user based on email and password, set the currentUser to the returned user.
+	 * @param email : the User's email.
+	 * @param password : the User's password.
+	 * @return true if user found, false if user not found or incorrect.
 	 */
-	public Boolean login(String email, String password) {
-		// Start of user code for method login
-		
+	public Boolean login(String email, String password) {		
 		try {
 			User user = MySQLDAOFactory.getMySQLDAOFactoryInstance().createUserDAO().getUser(email, password);
 			setCurrentUser(user);
@@ -63,23 +57,19 @@ public class UserFacade {
 		} catch (Exception e) {
 			return false;
 		}
-		// End of user code
 	}
 
-	// Start of user code (user defined methods for UserFacade)
-
-	// End of user code
 	/**
-	 * Returns user.
-	 * @return user 
+	 * Get the User logged in.
+	 * @return The User logged in.
 	 */
 	public User getCurrentUser() {
 		return this.currentUser;
 	}
 
 	/**
-	 * Sets a value to attribute user. 
-	 * @param newUser 
+	 * Set the User logged in.
+	 * @param newUser : The User logged in.
 	 */
 	public void setCurrentUser(User newUser) {
 		this.currentUser = newUser;
