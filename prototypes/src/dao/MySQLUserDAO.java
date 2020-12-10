@@ -5,6 +5,7 @@ package dao;
 
 import business_logic.user.User;
 //import database.JDBCConnector;
+import database.JDBCConnector;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -60,7 +61,7 @@ public class MySQLUserDAO extends UserDAO {
 		Statement stmt = null;
 		
 		try {
-			// Getconnection from JDBCConnector
+			// Getconnection
 			stmt = getJdbcConnector().getConnection().createStatement();
 		} catch (SQLException e) {
 			// TODO explain database not found

@@ -8,7 +8,7 @@ package dao;
  * Implements the {@link DAOFactory} interface
  * @author Salim Azharhoussen, Birane Ba, Raphael Bourret, Nicolas Galois
  */
-public class MongoDAOFactory implements DAOFactory {
+public class MongoDAOFactory extends DAOFactory {
 	
 	/**
 	 * The constructor.
