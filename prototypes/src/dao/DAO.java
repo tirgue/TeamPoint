@@ -11,7 +11,6 @@ import database.JDBCConnector;
  */
 public interface DAO<T> {
 
-	public static final JDBCConnector jdbcConnector = JDBCConnector.getInstance();
 	
 	/**
 	 * Creates the given object in the database.

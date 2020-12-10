@@ -18,11 +18,13 @@ import java.util.ArrayList;
  */
 public class MySQLUserDAO extends UserDAO {
 
+	private JDBCConnector jdbcConnector;
+
 	/**
 	 * The constructor.
 	 */
-	public MySQLUserDAO() {
-		// TODO construct the UserDAO object
+	public MySQLUserDAO(JDBCConnector connector) {
+		this.jdbcConnector = connector;
 	}
 
 	@Override
@@ -35,6 +37,10 @@ public class MySQLUserDAO extends UserDAO {
 	public Boolean delete(User obj) {
 		// TODO user deletion query to the database
 		return null;
+	}
+	
+	public JDBCConnector getJdbcConnector() {
+		return jdbcConnector;
 	}
 
 	/**ask to the database to return the line that correspond to an email and password
@@ -55,7 +61,7 @@ public class MySQLUserDAO extends UserDAO {
 		
 		try {
 			// Getconnection from JDBCConnector
-			stmt = jdbcConnector.getConnection().createStatement();
+			stmt = getJdbcConnector().getConnection().createStatement();
 		} catch (SQLException e) {
 			// TODO explain database not found
 			e.printStackTrace();
@@ -90,15 +96,16 @@ public class MySQLUserDAO extends UserDAO {
 		}
 		
 		User user = new User(resultat.get(0), resultat.get(1), resultat.get(2), resultat.get(3), resultat.get(4));
-		System.out.println(user.toString());
+		//System.out.println(user.toString());
 		return user;
 	}
 
 	public static void main(String[] args) {
-		MySQLUserDAO mySQLUserDAO = new MySQLUserDAO();
+		MySQLUserDAO mySQLUserDAO = new MySQLUserDAO(JDBCConnector.getInstance());
 
 		try {
-			mySQLUserDAO.getUser("galoisnicolas@gmail.com", "toto");
+			User user = mySQLUserDAO.getUser("galoisnicolas@gmail.com", "toto");
+			System.out.println(user.toString());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
