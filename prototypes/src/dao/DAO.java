@@ -30,7 +30,7 @@ public interface DAO<T> {
 	public Boolean delete(T obj);
 	
 	/**
-	 *  
+	 *  Format the date database for query 
 	 * @param date from Date java package
 	 * @return the correct String format according to SQL "yyyy-mm-dd"
 	 */
@@ -54,8 +54,9 @@ public interface DAO<T> {
 	}
 	
 	/**
+	 * Format the given string for database query
 	 * @param String str
-	 * @return a null pointer if str null, if not null return 'str'
+	 * @return a null pointer if str null, if not null return "str"
 	 */
 	public static String stringFormat(String str) {
 		
