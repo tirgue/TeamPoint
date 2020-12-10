@@ -14,22 +14,6 @@ import java.util.Date;
 public interface DAO<T> {
 	
 	/**
-	 * Creates the given object in the database.
-	 * (Insert query)
-	 * @param obj The object data structure must exist in the database 
-	 * @return Returns <code>true</code> if the operation succeed otherwise <code>false</code> 
-	 */
-	public Boolean create(T obj);
-
-	/**
-	 * Removes the data corresponding to this object form the database.
-	 * (Delete Query)
-	 * @param obj The object data structure must exist in the database 
-	 * @return Returns <code>true</code> if the operation succeed otherwise <code>false</code>
-	 */
-	public Boolean delete(T obj);
-	
-	/**
 	 *  Format the date database for query 
 	 * @param date from Date java package
 	 * @return the correct String format according to SQL "yyyy-mm-dd"
