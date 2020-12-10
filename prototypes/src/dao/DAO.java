@@ -8,7 +8,6 @@ package dao;
  * @author Salim Azharhoussen, Birane Ba, Raphael Bourret, Nicolas Galois
  */
 public interface DAO<T> {
-
 	
 	/**
 	 * Creates the given object in the database.

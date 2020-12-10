@@ -46,17 +46,8 @@ public class LoginController implements Initializable{
 	/**
 	 * The constructor.
 	 */
-	// TODO : remplacer les champs email et password, faire la suite de login
 	public LoginController() {
-		
-		if(UserFacade.getUserFacadeInstance().login(email, password)) {
-			// Login good
-		}
-		else {
-			// Login bad
-		}
-		
-		
+		userFacade = UserFacade.getUserFacadeInstance();
 	}
 
 
@@ -70,7 +61,9 @@ public class LoginController implements Initializable{
 
 	@FXML
 	public void seConnecterButtonOnAction(ActionEvent event){
-		if(emailTextField.getText().isBlank() || motDePassePasswordField.getText().isBlank() || !userFacade.login(emailTextField.getText(),motDePassePasswordField.getText())){
+		if(emailTextField.getText().isBlank() 
+			|| motDePassePasswordField.getText().isBlank() 
+			|| !userFacade.login(emailTextField.getText(),motDePassePasswordField.getText())){
 			authIncorrecte();
 		}else{
 			//CHANGEMENT DE VUE

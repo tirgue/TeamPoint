@@ -6,6 +6,7 @@ package dao;
 import business_logic.user.User;
 import database.JDBCConnector;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,15 +18,11 @@ import java.util.ArrayList;
  * @author Salim Azharhoussen, Birane Ba, Raphael Bourret, Nicolas Galois
  */
 public class MySQLUserDAO extends UserDAO implements dateSQLFormat, nullStringable{
-
-	private JDBCConnector jdbcConnector;
-
+	
 	/**
 	 * The constructor.
 	 */
-	public MySQLUserDAO(JDBCConnector connector) {
-		this.jdbcConnector = connector;
-	}
+	public MySQLUserDAO() {}
 
 	/**
 	 * Insert a new User in the database
@@ -46,7 +43,7 @@ public class MySQLUserDAO extends UserDAO implements dateSQLFormat, nullStringab
 				
 		try {
 			// Getconnection
-			stmt = getJdbcConnector().getConnection().createStatement();
+			stmt = getConnection().createStatement();
 		} catch (SQLException e) {
 			// TODO explain database not found
 			e.printStackTrace();
@@ -97,7 +94,7 @@ public class MySQLUserDAO extends UserDAO implements dateSQLFormat, nullStringab
 		
 		try {
 			// Getconnection
-			stmt = getJdbcConnector().getConnection().createStatement(
+			stmt = getConnection().createStatement(
 		              ResultSet.TYPE_SCROLL_SENSITIVE,
 		              ResultSet.CONCUR_UPDATABLE);		
 			} 
@@ -126,8 +123,8 @@ public class MySQLUserDAO extends UserDAO implements dateSQLFormat, nullStringab
 		}
 	}	
 		
-	public JDBCConnector getJdbcConnector() {
-		return jdbcConnector;
+	public Connection getConnection() {
+		return JDBCConnector.getJDBCConnectorInstance().getConnection();
 	}
 
 	/**ask to the database to return the line that correspond to an email and password
@@ -137,6 +134,8 @@ public class MySQLUserDAO extends UserDAO implements dateSQLFormat, nullStringab
 	 */
 	@Override
 	public User getUser(String email, String password) throws Exception {
+		//TODO adjust, correct getUser
+		
 		// List of all fields to create an user
 		ArrayList<String> resultat = new ArrayList<String>();
 		
@@ -146,14 +145,16 @@ public class MySQLUserDAO extends UserDAO implements dateSQLFormat, nullStringab
 		// Query statement
 		Statement stmt = null;
 		
+		
+		
 		try {
-			// Getconnection
-			stmt = getJdbcConnector().getConnection().createStatement();
+			// Getconnection from JDBCConnector
+			stmt = getConnection().createStatement();
 		} catch (SQLException e) {
 			// TODO explain database not found
 			e.printStackTrace();
 		}
-
+		
 		String req = "SELECT idUser, name, firstName, email, phoneNumber, profileDescription, birthday" + 
 					 " FROM User "
 					 + "WHERE email = '" + email + "'" + " AND password = '" + password + "'";
@@ -183,19 +184,18 @@ public class MySQLUserDAO extends UserDAO implements dateSQLFormat, nullStringab
 		}
 		
 		User user = new User(resultat.get(0), resultat.get(1), resultat.get(2), resultat.get(3), resultat.get(4));
-		//System.out.println(user.toString());
+		System.out.println(user.toString());
 		return user;
 	}
 
 	public static void main(String[] args) {
 		
-		MySQLUserDAO mySQLUserDAO = new MySQLUserDAO(JDBCConnector.getInstance());
+		MySQLUserDAO mySQLUserDAO = new MySQLUserDAO();
 
 		// Login test
 
 		try {
-			User user = mySQLUserDAO.getUser("galoisnicolas@gmail.com", "toto");
-			System.out.println(user.toString());
+			mySQLUserDAO.getUser("galoisnicolas@gmail.com", "toto");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -207,4 +207,5 @@ public class MySQLUserDAO extends UserDAO implements dateSQLFormat, nullStringab
 		// Delete test
 		System.out.println(mySQLUserDAO.delete(new User(null, null, "emailCreated", "pass", null, null)));
 	}
+
 }

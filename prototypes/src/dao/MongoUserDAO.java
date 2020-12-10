@@ -35,9 +35,4 @@ public class MongoUserDAO extends UserDAO {
 		//TODO user select where email and pwd query in the database
 		return null;
 	}
-
-	// Start of user code (user defined methods for MongoUserDAO)
-
-	// End of user code
-
 }
