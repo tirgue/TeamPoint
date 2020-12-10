@@ -31,6 +31,7 @@ public class MySQLUserDAO extends UserDAO {
 	 * @return true if the user is correctly created, false if not
 	 */
 	// TODO Check if email is already in the db
+	// TODO find solution for password without stocking it in a user
 	@Override
 	public Boolean create(User obj) {
 		

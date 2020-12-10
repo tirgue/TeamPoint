@@ -30,6 +30,7 @@ public class User {
 	 */
 	private String email;
 	
+	// TODO find solution for password without stocking it in a user
 	/**
 	 * Property password
 	 */
@@ -59,6 +60,8 @@ public class User {
 	/**
 	 * The constructor
 	 */
+	
+	// TODO find solution for password without stocking it in a user
 	public User(String name, String firstName, String email, String password, String profileDescription, String phoneNumber) {
 			this.name = name;
 			this.firstName = firstName;
