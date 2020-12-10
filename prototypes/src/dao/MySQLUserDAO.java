@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * 
  * @author Salim Azharhoussen, Birane Ba, Raphael Bourret, Nicolas Galois
  */
-public class MySQLUserDAO extends UserDAO implements dateSQLFormat, nullStringable{
+public class MySQLUserDAO extends UserDAO {
 	
 	/**
 	 * The constructor.
@@ -49,14 +49,14 @@ public class MySQLUserDAO extends UserDAO implements dateSQLFormat, nullStringab
 			e.printStackTrace();
 		}
 		
-		String date = dateFormatSQL(obj.getBirthday());
+		String date = DAO.dateFormatSQL(obj.getBirthday());
 		
 		String req = "INSERT INTO User"
 				+ " (name, firstName, email, password, phoneNumber, profileDescription, birthday)" + 
-				" VALUES(" + nullStringFormat(obj.getName()) + ", " + nullStringFormat(obj.getFirstName()) + ", " + 
-				nullStringFormat(obj.getEmail()) + ", " + nullStringFormat(obj.getPassword()) + ", " + 
-				nullStringFormat(obj.getPhoneNumber()) + ", " + nullStringFormat(obj.getProfileDescription()) + 
-				", " + nullStringFormat(date) + ")";
+				" VALUES(" + DAO.nullStringFormat(obj.getName()) + ", " + DAO.nullStringFormat(obj.getFirstName()) + ", " + 
+				obj.getEmail() + ", " + DAO.nullStringFormat(obj.getPassword()) + ", " + 
+				DAO.nullStringFormat(obj.getPhoneNumber()) + ", " + DAO.nullStringFormat(obj.getProfileDescription()) + 
+				", " + DAO.nullStringFormat(date) + ")";
 		
 			try {
 				
