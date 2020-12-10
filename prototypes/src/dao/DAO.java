@@ -3,14 +3,11 @@
  *******************************************************************************/
 package dao;
 
-import database.JDBCConnector;
-
 /**
  * DAO interface
  * @author Salim Azharhoussen, Birane Ba, Raphael Bourret, Nicolas Galois
  */
 public interface DAO<T> {
-
 	
 	/**
 	 * Creates the given object in the database.

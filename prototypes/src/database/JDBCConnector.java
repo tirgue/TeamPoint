@@ -10,18 +10,18 @@ import java.sql.SQLException;
 import database.JDBCConnector;
 
 /**
- * Description of JDBCConnector.
+ * {@link JDBCConnector} is a Singleton class. It holds the {@link Connection} to the database
  * 
- * @author Nico
+ * @author Salim Azharhoussen, Birane Ba, Raphael Bourret, Nicolas Galois
  */
 public class JDBCConnector {
+
 	/**
-	 * Description of the property connection.
+	 * The database connection
 	 */
 	private Connection connection;
 
 	private JDBCConnector() {
-
 		try {
 			this.connection = DriverManager.getConnection(
 				"jdbc:mysql://localhost/TeamPoint?" + "user=root&password=");
@@ -31,21 +31,27 @@ public class JDBCConnector {
 		}
 	}
 	
-	/** Holder */
-	private static class JDBCCOnnectorHolder {
-		/** Instance unique non préinitialisée */
-		private final static JDBCConnector INSTANCE = new JDBCConnector();
+	/***
+	 * The {@link JDBCConnectorHolder} guarantee the uniqueness of {@link JDBCConnector} instance
+	 */
+	private static class JDBCConnectorHolder {
+		/**
+		 * The unique instance of {@link JDBCConnector}
+		 */
+		private final static JDBCConnector JDBC_CONNECTOR = new JDBCConnector();
 	}
 
-	/** Point d'accès pour l'instance unique du singleton */
-	public static JDBCConnector getInstance() {
-		return JDBCCOnnectorHolder.INSTANCE;
+	/***
+	 * <code>static</code> method. Gives the unique instance of {@link JDBCConnector}
+	 * @return Returns the {@link JDBCConnector} 
+	 */
+	public static JDBCConnector getJDBCConnectorInstance() {
+		return JDBCConnectorHolder.JDBC_CONNECTOR;
 	}
 
 	/**
-	 * Returns connection.
-	 * 
-	 * @return connection
+	 * Returns the database connection.
+	 * @return Returns a {@link Connection}
 	 */
 	public Connection getConnection() {
 		return this.connection;

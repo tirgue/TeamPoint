@@ -4,8 +4,6 @@
 package dao;
 
 import business_logic.user.User;
-//import database.JDBCConnector;
-import database.JDBCConnector;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,13 +17,11 @@ import java.util.ArrayList;
  */
 public class MySQLUserDAO extends UserDAO {
 
-	private JDBCConnector jdbcConnector;
-
 	/**
 	 * The constructor.
 	 */
-	public MySQLUserDAO(JDBCConnector connector) {
-		this.jdbcConnector = connector;
+	public MySQLUserDAO() {
+		// TODO construct the UserDAO object
 	}
 
 	@Override
@@ -39,10 +35,6 @@ public class MySQLUserDAO extends UserDAO {
 		// TODO user deletion query to the database
 		return null;
 	}
-	
-	public JDBCConnector getJdbcConnector() {
-		return jdbcConnector;
-	}
 
 	/**ask to the database to return the line that correspond to an email and password
 	 * @param email 
@@ -51,6 +43,8 @@ public class MySQLUserDAO extends UserDAO {
 	 */
 	@Override
 	public User getUser(String email, String password) throws Exception {
+		//TODO adjust, correct getUser
+		
 		// List of all fields to create an user
 		ArrayList<String> resultat = new ArrayList<String>();
 		
@@ -60,13 +54,16 @@ public class MySQLUserDAO extends UserDAO {
 		// Query statement
 		Statement stmt = null;
 		
+		
+		/*
 		try {
-			// Getconnection
-			stmt = getJdbcConnector().getConnection().createStatement();
+			// Getconnection from JDBCConnector
+			stmt = jdbcConnector.getConnection().createStatement();
 		} catch (SQLException e) {
 			// TODO explain database not found
 			e.printStackTrace();
 		}
+		*/
 
 		String req = "SELECT idUser, name, firstName, email, phoneNumber, profileDescription, birthday" + 
 					 " FROM User "
@@ -97,19 +94,19 @@ public class MySQLUserDAO extends UserDAO {
 		}
 		
 		User user = new User(resultat.get(0), resultat.get(1), resultat.get(2), resultat.get(3), resultat.get(4));
-		//System.out.println(user.toString());
+		System.out.println(user.toString());
 		return user;
 	}
 
+/*	Test
 	public static void main(String[] args) {
-		MySQLUserDAO mySQLUserDAO = new MySQLUserDAO(JDBCConnector.getInstance());
+		MySQLUserDAO mySQLUserDAO = new MySQLUserDAO();
 
 		try {
-			User user = mySQLUserDAO.getUser("galoisnicolas@gmail.com", "toto");
-			System.out.println(user.toString());
+			mySQLUserDAO.getUser("galoisnicolas@gmail.com", "toto");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+	}*/
 }

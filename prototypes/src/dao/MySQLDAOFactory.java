@@ -3,8 +3,6 @@
  *******************************************************************************/
 package dao;
 
-import database.JDBCConnector;
-
 /**
  * Concrete Factory for MySQLDAO products.
  * Implements the {@link DAOFactory} interface
@@ -15,25 +13,13 @@ public class MySQLDAOFactory extends DAOFactory {
 	/**
 	 * The constructor.
 	 */
-	private MySQLDAOFactory() {}
+	public MySQLDAOFactory() {}
 
-	private static class MySQLDAOFactoryHolder{
-		private static final MySQLDAOFactory INSTANCE = new MySQLDAOFactory();
-	}
-	
 	/**
-	 * Static method that returns the unique instance of this class
-	 * @return Returns the instance of {@link MySQLDAOFactory}
-	 */
-	public static DAOFactory getMySQLDAOFactoryInstance() {
-		return MySQLDAOFactoryHolder.INSTANCE;
-	}
-	
-	/**
-	 * Creates a {@link UserDAO}
-	 * @return Returns a MySQLUserDAO
+	 * Creates a {@link UserDAO} object
+	 * @return Returns a {@link UserDAO}
 	 */
 	public UserDAO createUserDAO() {
-		return new MySQLUserDAO(getJdbcConnector());
+		return new MySQLUserDAO();
 	}
 }
