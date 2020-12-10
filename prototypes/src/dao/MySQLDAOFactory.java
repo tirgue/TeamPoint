@@ -3,8 +3,6 @@
  *******************************************************************************/
 package dao;
 
-import database.JDBCConnector;
-
 /**
  * Concrete Factory for MySQLDAO products.
  * Implements the {@link DAOFactory} interface

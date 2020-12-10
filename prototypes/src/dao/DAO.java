@@ -3,8 +3,6 @@
  *******************************************************************************/
 package dao;
 
-import database.JDBCConnector;
-
 /**
  * DAO interface
  * @author Salim Azharhoussen, Birane Ba, Raphael Bourret, Nicolas Galois

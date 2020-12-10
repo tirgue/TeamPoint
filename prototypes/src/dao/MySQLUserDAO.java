@@ -9,17 +9,14 @@ import database.JDBCConnector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * MySQL specific DAO for User. This class extends {@link UserDAO}
  * 
  * @author Salim Azharhoussen, Birane Ba, Raphael Bourret, Nicolas Galois
  */
-public class MySQLUserDAO extends UserDAO {
+public class MySQLUserDAO extends UserDAO implements dateSQLFormat, nullStringable{
 
 	private JDBCConnector jdbcConnector;
 
@@ -189,44 +186,6 @@ public class MySQLUserDAO extends UserDAO {
 		//System.out.println(user.toString());
 		return user;
 	}
-	
-	/**
-	 *  
-	 * @param date from Date java package
-	 * @return the correct String format according to SQL "yyyy-mm-dd"
-	 */
-	private String dateFormatSQL(Date date) {
-		
-		if(date == null) {
-			return null;
-		}
-		
-		// The ZoneId here has no implication since we only keep the year, month and day
-		ZonedDateTime localDate = date.toInstant().atZone(ZoneId.of("Europe/Paris"));
-		
-		Integer year = localDate.getYear(); // Year
-		String dateFormat = year.toString();
-		dateFormat += "-";
-		dateFormat += localDate.getMonthValue(); // Month
-		dateFormat += "-";
-		dateFormat += localDate.getDayOfMonth(); // Day
-		
-		return dateFormat;
-	}
-	
-	/**
-	 * return a null pointer if str is null
-	 * @param String str
-	 * @return a null pointer if null, if not null return 'str'
-	 */
-	private String nullStringFormat(String str) {
-		
-		if(str == null) {
-			return null;
-		}
-		
-		return "'" + str + "'";
-	}
 
 	public static void main(String[] args) {
 		
@@ -243,7 +202,7 @@ public class MySQLUserDAO extends UserDAO {
 		}
 		
 		// insert test
-		//System.out.println(mySQLUserDAO.create(new User(null, null, "emailCreated", "pass", null, null)));
+		System.out.println(mySQLUserDAO.create(new User(null, null, "emailCreated", "pass", null, null)));
 		
 		// Delete test
 		System.out.println(mySQLUserDAO.delete(new User(null, null, "emailCreated", "pass", null, null)));
