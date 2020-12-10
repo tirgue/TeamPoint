@@ -5,74 +5,69 @@ package business_logic;
 
 
 import business_logic.user.User;
-import dao.MySQLDAOFactory;
+import dao.DAOFactory;
+import dao.UserDAO;
 
 /**
- * Make the link between User frontend and User backend.
- * 
+ * {@link UserFacade} is a Singleton class. Simplify the use of 
+ * buisness logic subsystem for the GUI layer. Facade pattern. Contains the
+ * buisness methods.
  * @author Salim Azharhoussen, Birane Ba, Raphael Bourret, Nicolas Galois
  */
 public class UserFacade {
-	/**
-	 * The User logged in. If there is no User logged in : null.
-	 */
-	private User currentUser = null;
 
 	/**
-	 * UserFacade constructor.
-	 * @return A new UserFacade.
+	 * <code>currentUser</code> class member {@link User} instance.
+	 * Is null until login method is called
 	 */
-	private UserFacade() {}
+	@SuppressWarnings("unused")
+	private User currentUser;
+
+
+	private DAOFactory daoFactory;
 
 	/**
-	 * Handler for the unique instance of UserFacade.
+	 * <code>private</code> constructor
 	 */
-	private static class LazyHolder {
-		/**
-		 * The unique instance of the UserFacede.
-		 */
-		static final UserFacade INSTANCE = new UserFacade ();
+	private UserFacade() {
+		this.currentUser = null;
+		this.daoFactory = DAOFactory.getDaoFactoryInstance();
 	}
 
-	/**
-	 * Get the UserFacade instance.
-	 * @return The unique UserFacade instance.
+	/***
+	 * The {@link UserFacadeHolder} <code>static</code> nested class
+	 * guarantees the uniqueness of {@link UserFacade} instance
+	 */
+	private static class UserFacadeHolder {
+		/**
+		 * The unique instance of {@link UserFacade}
+		 */
+		private static final UserFacade USER_FACADE = new UserFacade();
+	}
+
+	/***
+	 * <code>static</code> method. Gives the unique instance of {@link UserFacade}
+	 * @return Returns the {@link UserFacade} 
 	 */
 	public static UserFacade getUserFacadeInstance() {
-		return LazyHolder.INSTANCE;
+		return UserFacadeHolder.USER_FACADE;
 	}
 
 	/**
-	 * Ask for UserDAO to return an user based on email and password, set the currentUser to the returned user.
-	 * @param email : the User's email.
-	 * @param password : the User's password.
-	 * @return true if user found, false if user not found or incorrect.
+	 * Asks for UserDAO to return a user based on email and password,
+	 * sets the currentUser to the returned {@link User}
+	 * @param email 
+	 * @param password 
+	 * @return true if user found, false if user not found or incorrect 
 	 */
-	public Boolean login(String email, String password) {		
+	public Boolean login(String email, String password) {
+		daoFactory.initializeConnection();
+		UserDAO userDAO = daoFactory.createUserDAO();
 		try {
-			User user = MySQLDAOFactory.getMySQLDAOFactoryInstance().createUserDAO().getUser(email, password);
-			setCurrentUser(user);
-			
-			return true;
+			this.currentUser = userDAO.getUser(email, password);	
 		} catch (Exception e) {
 			return false;
 		}
+		return true;
 	}
-
-	/**
-	 * Get the User logged in.
-	 * @return The User logged in.
-	 */
-	public User getCurrentUser() {
-		return this.currentUser;
-	}
-
-	/**
-	 * Set the User logged in.
-	 * @param newUser : The User logged in.
-	 */
-	public void setCurrentUser(User newUser) {
-		this.currentUser = newUser;
-	}
-
 }
