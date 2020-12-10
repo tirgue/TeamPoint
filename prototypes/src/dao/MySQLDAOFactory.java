@@ -34,6 +34,6 @@ public class MySQLDAOFactory extends DAOFactory {
 	 * @return Returns a MySQLUserDAO
 	 */
 	public UserDAO createUserDAO() {
-		return new MySQLUserDAO(jdbcConnector);
+		return new MySQLUserDAO(getJdbcConnector());
 	}
 }

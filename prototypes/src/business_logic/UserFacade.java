@@ -20,7 +20,7 @@ public class UserFacade {
 	/**
 	 * Description of the property user.
 	 */
-	private User user = null;
+	private User currentUser = null;
 
 	// Start of user code (user defined attributes for UserFacade)
 
@@ -57,7 +57,7 @@ public class UserFacade {
 		
 		try {
 			User user = MySQLDAOFactory.getMySQLDAOFactoryInstance().createUserDAO().getUser(email, password);
-			setUser(user);
+			setCurrentUser(user);
 			
 			return true;
 		} catch (Exception e) {
@@ -73,16 +73,16 @@ public class UserFacade {
 	 * Returns user.
 	 * @return user 
 	 */
-	public User getUser() {
-		return this.user;
+	public User getCurrentUser() {
+		return this.currentUser;
 	}
 
 	/**
 	 * Sets a value to attribute user. 
 	 * @param newUser 
 	 */
-	public void setUser(User newUser) {
-		this.user = newUser;
+	public void setCurrentUser(User newUser) {
+		this.currentUser = newUser;
 	}
 
 }

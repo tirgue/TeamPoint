@@ -11,8 +11,17 @@ import database.JDBCConnector;
  * @author Salim Azharhoussen, Birane Ba, Raphael Bourret, Nicolas Galois
  */
 public abstract class DAOFactory {
-	public static final JDBCConnector jdbcConnector = JDBCConnector.getInstance();
+	
+	private JDBCConnector jdbcConnector;
 
+	public void initializeConnection() {
+		this.jdbcConnector = JDBCConnector.getInstance();
+	}
+	
+	public JDBCConnector getJdbcConnector() {
+		return jdbcConnector;
+	}
+	
 	/**
 	 * Creates a {@link UserDAO}
 	 * @return Returns a {@link UserDAO}

@@ -52,8 +52,17 @@ public class LoginController implements Initializable{
 	/**
 	 * The constructor.
 	 */
+	// TODO : remplacer les champs email et password, faire la suite de login
 	public LoginController() {
-		userFacade = UserFacade.getUserFacadeInstance();
+		
+		if(UserFacade.getUserFacadeInstance().login(email, password)) {
+			// Login good
+		}
+		else {
+			// Login bad
+		}
+		
+		
 	}
 
 
