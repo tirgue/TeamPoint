@@ -29,6 +29,11 @@ public class User {
 	 * The property email which is the user email.
 	 */
 	private String email;
+	
+	/**
+	 * Property password
+	 */
+	private String password;
 
 	/**
 	 * The property profileDescription which is the profile description of the user.
@@ -48,19 +53,28 @@ public class User {
 	/**
 	 * The property birthday which is the user birthday.
 	 */
-	public Date birthday = new Date();
+	public Date birthday;
 
 	//TODO Ajouter dans la base le role du user et donc dans le constructeur
 	/**
 	 * The constructor
 	 */
-	public User(String name, String firstName, String email, String profileDescription, String phoneNumber) {
+	public User(String name, String firstName, String email, String password, String profileDescription, String phoneNumber) {
 			this.name = name;
 			this.firstName = firstName;
 			this.email = email;
+			this.password = password;
 			this.profileDescription = profileDescription;
 			this.phoneNumber = phoneNumber;
 		}
+	
+	public User(String name, String firstName, String email, String profileDescription, String phoneNumber) {
+		this.name = name;
+		this.firstName = firstName;
+		this.email = email;
+		this.profileDescription = profileDescription;
+		this.phoneNumber = phoneNumber;
+	}
 
 	/**
 	 * Returns profileDescription.
@@ -108,6 +122,10 @@ public class User {
 	 */
 	public void setEmail(String newEmail) {
 		this.email = newEmail;
+	}
+	
+	public String getPassword() {
+		return password;
 	}
 
 	/**
